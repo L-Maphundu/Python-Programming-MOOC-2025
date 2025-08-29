@@ -1,6 +1,6 @@
 # Write your solution here
 def column_correct(sudoku: list, column_no: int):
-    """Checks if a numbers 1-9 appear only once in a column
+    """Checks if numbers 1-9 appear only once in a column
     of a given matrix (sudoku)"""
 
     numbers = []
