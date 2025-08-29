@@ -1,6 +1,6 @@
 # Write your solution here
 def block_correct(sudoku: list, row_no: int, column_no: int):
-    """Check if a number from 1-9 is not repeated in a 3x3 matrix
+    """Checks if a number from 1-9 is not repeated in a 3x3 matrix
     taken from a bigger nxn matrix"""
 
     numbers = []
