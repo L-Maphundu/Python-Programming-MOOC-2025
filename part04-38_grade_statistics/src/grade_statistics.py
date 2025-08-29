@@ -2,7 +2,7 @@
 def grade(exam,overall):
     """Takes in two list, exam scores (exam)
     and overall scores (overall) and returns a list of grades 
-    distribtution of the course."""
+    distribtution for the course."""
     
     #Stores the grades where index 0 correspends to grade 0 (fail) and index 5 is grade 5.
     distribution = [0, 0, 0, 0, 0, 0]
@@ -37,14 +37,17 @@ def main():
         exams.append(int(scores[0]))
         overall.append(int(scores[0]) + int(scores[1])//10)
 
-    stats = (grade(exams, overall))
-    pass_rate = (sum(stats[1:])/sum(stats))*100
+    if overall != []:
+        stats = (grade(exams, overall))
+        pass_rate = (sum(stats[1:])/sum(stats))*100
 
-    print("Statistics:")
-    print(f"Points average: {sum(overall)/len(overall)} ")
-    print(f"Pass percentage: {pass_rate:.1f}")
-    print("Grade distribution: ")
-    for i in range(5,-1,-1):
-        print(" "*2, f"{i}: ", "*"*stats[i], sep="")
+        print("Statistics:")
+        print(f"Points average: {sum(overall)/len(overall)} ")
+        print(f"Pass percentage: {pass_rate:.1f}")
+        print("Grade distribution: ")
+        for i in range(5,-1,-1):
+            print(" "*2, f"{i}: ", "*"*stats[i], sep="")
+    else:
+        print("No results were entered.")
 
 main()
