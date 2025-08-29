@@ -44,3 +44,22 @@ def block_correct(sudoku: list, row_no: int, column_no: int):
         numbers.append(number)
 
     return True
+
+def sudoku_grid_correct(sudoku: list):
+    #first we check the rows and columns together, if they fail no need to check 3x3 blocks.
+    for i in range (9):
+        if not (column_correct(sudoku,i) and row_correct(sudoku,i)):
+            return False
+    
+    #Now we check the 3x3 blocks
+    row_no = 0
+    while row_no < 7:
+        for column_no in range(0,7,3):
+            if not block_correct(sudoku, row_no, column_no):
+                return False
+
+        row_no += 3
+
+    return True
+
+
