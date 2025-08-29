@@ -1,1 +1,13 @@
 # Write your solution here
+def column_correct(sudoku: list, column_no: int):
+    """Checks if a numbers 1-9 appear only once in a column
+    of a given matrix (sudoku)"""
+
+    numbers = []
+
+    for row in sudoku:
+        if row[column_no] != 0 and row[column_no] in numbers:
+            return False
+        numbers.append(row[column_no])
+    
+    return True
