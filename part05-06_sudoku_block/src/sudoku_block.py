@@ -3,13 +3,11 @@ def block_correct(sudoku: list, row_no: int, column_no: int):
     """Check if a number from 1-9 is not repeated in a 3x3 matrix
     taken from a bigger nxn matrix"""
 
-    r = row_no
-    c = column_no
     numbers = []
     entries = []
 
-    for i in range(r, r + 3):
-        entries += (sudoku[i])[c: c+3]
+    for i in range(row_no, row_no + 3):
+        entries += (sudoku[i])[column_no: (column_no + 3)]
     
     for number in entries:
         if number != 0 and number in numbers:
