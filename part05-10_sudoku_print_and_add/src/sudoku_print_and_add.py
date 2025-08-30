@@ -1,7 +1,7 @@
 # Write your solution here
 def print_sudoku(sudoku: list):
     """Prints a sudoku grid where "_" represents
-    and empty space."""
+    an empty cell."""
 
     line_space = 1
     row_space = 1
