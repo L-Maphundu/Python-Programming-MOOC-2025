@@ -3,11 +3,11 @@ def invert(dictionary):
     temp = {}
     for key, value in dictionary.items():
         temp[value] = key
-        
+
     dictionary.clear()
     for key, value in temp.items():
         dictionary[key] = value
-    
+    del temp
 
 if __name__ == "__main__":
     s = {1: "first", 2: "second", 3: "third", 4: "fourth"}
