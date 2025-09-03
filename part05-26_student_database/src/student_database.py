@@ -1,6 +1,4 @@
 # Write your solution here
-students = {} #The dictionary storing students' information
-
 def add_student(students: dict, name: str):
     """Adds a student to the database."""
     if name not in students:
@@ -37,8 +35,21 @@ def summary(students):
             name = student
             most_courses = len(courses)
     
+    highest = 0
+    best_student = ""
+    for student, courses in students.items():
+        tot = 0
+        for course in courses: #calculates the aggregate for the student.
+            tot += course[1]
+
+        avg = tot/len(courses)
+        if avg > highest:
+            best_student = student
+            highest = avg
+            
     print(f"students {len(students)}")
     print(f"most courses completed {most_courses} {name}")
+    print(f"best average grade {highest:.1f} {best_student}")
     
 def print_student(students: dict, name: str):
 
