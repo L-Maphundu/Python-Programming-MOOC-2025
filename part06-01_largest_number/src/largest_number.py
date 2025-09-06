@@ -2,7 +2,7 @@
 
 def largest():
     """Reads 'numbers.txt' file containing integers and returns
-    the biggest integer in the file."""
+    the biggest integer in the file. Each line contains one integer."""
 
     with open("numbers.txt") as numbers:
         
