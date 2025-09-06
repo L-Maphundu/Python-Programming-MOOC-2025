@@ -60,7 +60,7 @@ def print_student(students: dict, name: str):
 
     else:
         tot = 0 #The aggregate of all the courses taken
-        completed_courses = len(students[name]) #Number of completed courses
+        completed_courses = len(students[name]) #Number of courses completed
 
         print(f"{name}:", f" {completed_courses} completed courses:",sep="\n")
         for course in students[name]:
