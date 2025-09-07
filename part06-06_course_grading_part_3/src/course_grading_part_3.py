@@ -40,7 +40,7 @@ def aggregator(file):
     return exercises
 
 def student_summary(details: dict, exercises: dict, exams: dict):
-    """Returns a dictionary of full name (key) and summary statistics of exercises and grades."""
+    """Returns a dictionary of full name (key) and summary statistics comprised of exercises and grades."""
     summary = {}
     boundaries = [15, 18, 21, 24, 28]
 
@@ -60,14 +60,9 @@ def student_summary(details: dict, exercises: dict, exams: dict):
     return summary
         
 def main():
-    if False:
-        student_info = input("Student information: ")
-        exercise_data = input("Exercises completed: ")
-        exam_data = input("Exam points: ")
-    else:
-        student_info = "students1.csv"
-        exercise_data = "exercises1.csv"
-        exam_data = "exam_points1.csv"
+    student_info = input("Student information: ")
+    exercise_data = input("Exercises completed: ")
+    exam_data = input("Exam points: ")
 
     #populate the dictionaries needed by student_summary function.
     details = student_details(student_info)
@@ -76,12 +71,11 @@ def main():
 
     grades = student_summary(details, exercises, exams)
     
-    print(f"{'name':26}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade")
+    print(f"{'name':30}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade")
     for full_name, summary in grades.items():
-        print(f"{full_name:26}",end="")
+        print(f"{full_name:30}",end="")
         for data in summary:
             print(f"{str(data):10}",end="")
         print()
-
 
 main()
