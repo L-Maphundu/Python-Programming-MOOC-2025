@@ -69,12 +69,12 @@ def main():
     exercises = aggregator(exercise_data) 
     exams = aggregator(exam_data)
 
-    grades = student_summary(details, exercises, exams)
+    summary = student_summary(details, exercises, exams)
     
     print(f"{'name':30}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade")
-    for full_name, summary in grades.items():
+    for full_name, stats in summary.items():
         print(f"{full_name:30}",end="")
-        for data in summary:
+        for data in stats:
             print(f"{str(data):10}",end="")
         print()
 
