@@ -6,9 +6,13 @@ def search_by_name(filename: str, word: str):
     """
 
     names = []
+    lines = []
     with open(filename) as recipes:
         for line in recipes:
-            if word.lower() in line.lower():
+            lines.append(line)
+            index = len(lines) - 2
+            if word.lower() in line.lower() and (len(lines) == 1 or lines[index] == "\n"): 
+                #Avoids cases where the search word is found but not in the name but as ingredient.
                 names.append(line.strip())
 
     return names
@@ -25,15 +29,8 @@ def search_by_time(filename: str, prep_time: int):
                 results.append(f"{recipes[-2]}, preparation time {line} min")
     return results
 
-def main():
-    word = "cake" #input("Enter food name: ")
-    prep_time = 20
-    filename = "recipes1.txt" #input("Enter file name: ")
-    recipe_names = search_by_name(filename, word)
-    recipe_times = search_by_time(filename, prep_time)
-
-    for name in recipe_times:
-        print(name)
-
-main()
+if __name__ == "__main__":
+    found_recipes = search_by_name("recipes1.txt", "cake")
+    for recipe in found_recipes:
+        print(recipe)
 
