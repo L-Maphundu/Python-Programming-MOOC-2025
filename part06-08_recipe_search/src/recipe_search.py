@@ -10,10 +10,12 @@ def search_by_name(filename: str, word: str):
     index = len(recipe) - 2
     with open(filename) as recipes_data:
         for line in recipes_data:
+            line = line.strip()
             recipe.append(line) 
-            if word.lower() in line.lower() and (len(recipe) == 1 or recipe[index] == "\n"): 
+
+            if word.lower() in line.lower() and (len(recipe) == 1 or recipe[index] == ""): 
                 #Avoids cases where the search word is found but not in the name but as an ingredient.
-                names.append(line.strip())
+                names.append(line)
 
     return names
 
