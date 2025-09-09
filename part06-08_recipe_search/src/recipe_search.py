@@ -17,7 +17,7 @@ def search_by_name(filename: str, word: str):
                 continue
 
             if word.lower() in line.lower() and len(recipe) == 1: 
-                #Avoids cases where the search word is found but not in the name but as an ingredient.
+                #Avoids cases where the search word is found but not in the name but in ingredient.
                 names.append(line)
 
     return names
