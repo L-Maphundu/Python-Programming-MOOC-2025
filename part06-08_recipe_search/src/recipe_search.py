@@ -41,7 +41,7 @@ def search_by_time(filename: str, prep_time: int):
             recipe.append(line)
             if line.isnumeric() and int(line) <= prep_time:
                 results.append(f"{recipe[0]}, preparation time {line} min")
-                recipes = []
+                recipe = []
 
     return results
 
