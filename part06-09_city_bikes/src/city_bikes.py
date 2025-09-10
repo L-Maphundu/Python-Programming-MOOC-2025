@@ -50,13 +50,12 @@ def greatest_distance(stations: dict):
     j = 1 
     greatest = 0
     result = ""
-    for i in range(len(names)*2 - 1):
+    for i in range(len(names)):
         k = j
         for k in range(j, len(names)):    
             if distance(stations, f"{names[i]}", f"{names[k]}") > greatest:
                 greatest = distance(stations, f"{names[i]}", f"{names[k]}")
                 result = (names[i], names[k], greatest)
-                print(result)
         j += 1
 
     return result
