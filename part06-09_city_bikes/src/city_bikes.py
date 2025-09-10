@@ -52,16 +52,16 @@ def greatest_distance(stations: dict):
     result = ""
     for i in range(len(names)*2 - 1):
         k = j
-        for k in range(j, len(names)):
-            if distance(stations, names[i], names[j]) > greatest:
-                greatest = distance(stations, names[i], names[j])
-                result = (names[i], names[j], greatest)
+        for k in range(j, len(names)):    
+            if distance(stations, f"{names[i]}", f"{names[k]}") > greatest:
+                greatest = distance(stations, f"{names[i]}", f"{names[k]}")
+                result = (names[i], names[k], greatest)
+                print(result)
         j += 1
 
     return result
     
-if __name__ == "__main":
+if __name__ == "__main__":
     stations = get_station_data('stations1.csv')
-    print(stations)
-    #station1, station2, greatest = greatest_distance(stations)
-    #print(station1, station2, greatest)
+    station1, station2, greatest = greatest_distance(stations)
+    print(station1, station2, greatest)
