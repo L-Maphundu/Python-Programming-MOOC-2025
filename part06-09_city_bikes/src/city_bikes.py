@@ -46,17 +46,14 @@ def greatest_distance(stations: dict):
 
     for station in stations:
         names.append(station)
-
-    j = 1 
+        
     greatest = 0
     result = ()
     for i in range(len(names)):
-        k = j
-        for k in range(j, len(names)):    
+        for k in range(i + 1, len(names)):    
             if distance(stations, f"{names[i]}", f"{names[k]}") > greatest:
                 greatest = distance(stations, f"{names[i]}", f"{names[k]}")
                 result = (names[i], names[k], greatest)
-        j += 1
 
     return result
     
