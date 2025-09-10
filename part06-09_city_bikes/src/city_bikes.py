@@ -49,7 +49,7 @@ def greatest_distance(stations: dict):
 
     j = 1 
     greatest = 0
-    result = ""
+    result = ()
     for i in range(len(names)):
         k = j
         for k in range(j, len(names)):    
