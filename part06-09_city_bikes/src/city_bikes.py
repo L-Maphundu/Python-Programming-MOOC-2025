@@ -46,7 +46,7 @@ def greatest_distance(stations: dict):
 
     for station in stations:
         names.append(station)
-        
+
     greatest = 0
     result = ()
     for i in range(len(names)):
@@ -58,6 +58,6 @@ def greatest_distance(stations: dict):
     return result
     
 if __name__ == "__main__":
-    stations = get_station_data('stations1.csv')
+    stations = get_station_data('stations8.csv')
     station1, station2, greatest = greatest_distance(stations)
     print(station1, station2, greatest)
