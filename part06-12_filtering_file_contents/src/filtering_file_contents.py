@@ -1,6 +1,6 @@
 # Write your solution here
 def filter_solutions():
-    """Reads the solutions.csv file and creates two files.
+    """Reads the 'solutions.csv' file and creates two files.
     'correct.csv' contains correct solutions to exercises from 'solutions.csv'
     and 'incorrect.csv' contains the incorrect ones."""
 
@@ -24,8 +24,9 @@ def filter_solutions():
                 correct.write(f"{line}\n")
             else:
                 incorrect.write(f"{line}\n")
-                
-filter_solutions()
+
+if __name__ == "__main__":         
+    filter_solutions()
             
 
                 
