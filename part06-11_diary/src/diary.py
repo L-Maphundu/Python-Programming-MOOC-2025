@@ -15,10 +15,8 @@ def main():
     while True:
         print("1 - add an entry, 2 - read entries, 0 - quit")
         option = input("Function: ").strip()
-        if option not in ["0", "1", "2"]: #Silently handles invalid entries. Not specified from spec but not a bad deviation.
-            continue
-        
-        #The error handling above guarantees option will eventually be 0, 1 or 2.
+    
+        #Silently handles invalid entries since the loop terminates only with '0'.
         if option == "0":
             break
 
@@ -27,8 +25,9 @@ def main():
             enter_entry(text)
             print("Diary saved")
 
-        else:
+        elif option == "2":
             print("Entries:")
             read_entries()
     print("Bye now!")
+
 main()
