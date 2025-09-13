@@ -61,7 +61,7 @@ def student_summary(details: dict, exercises: dict, exams: dict):
 
 def course_info(filename):
     """Reads a file containing course information and
-     creates a course name and credit string
+     returns a course name and credit string
     """
     details = []
     with open(filename) as course_info:
@@ -89,9 +89,12 @@ def main():
 
     #Course information.
     course_name = course_info(course_details)
-    print(course_name)
 
-    print(f"{'name':30}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade")
+    #Write course results.txt
+    with open("results.txt", "w") as results:
+        results.write(course_name + "\n")
+        results.write(f"{'name':30}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade\n")
+
     for full_name, stats in summary.items():
         print(f"{full_name:30}",end="")
         for data in stats:
