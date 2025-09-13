@@ -5,7 +5,7 @@ def student_details(filename):
     of id (key) and full name (value)."""
     
     student_details = {}
-    with open(file) as students:
+    with open(filename) as students:
         for student in students:
             student = student.strip()
             id, name, surname = student.split(';')
@@ -22,7 +22,7 @@ def aggregator(filename):
     and returns a dictionary of id (key) and aggregate of exercises or aggregate exam points (value)."""
 
     exercises = {}
-    with open(file) as students:
+    with open(filename) as students:
         for student in students:
             student = student.strip()
             info = student.split(';')
@@ -59,17 +59,24 @@ def student_summary(details: dict, exercises: dict, exams: dict):
 
     return summary
 
-def course_name(filename):
+def course_info(filename):
     """Reads a file containing course information and
      creates a course name and credit string
     """
-    pass
+    details = []
+    with open(filename) as course_info:
+        for line in course_info:
+            info = line.split(':')
+            details.append(info[1].strip())
+    
+    return f"{details[0]}, {details[1]} credits"
+
 
 def main():
     student_info = 'students1.csv' #input("Student information: ").strip()
     exercise_data = 'exercises1.csv' #input("Exercises completed: ").strip()
     exam_data = 'exam_points1.csv' #input("Exam points: ").strip()
-    course_info = 'course1.txt' #input("Course information: ").strip()
+    course_details = 'course1.txt' #input("Course information: ").strip()
 
     #populate the dictionaries needed by student_summary function.
     details = student_details(student_info)
@@ -78,9 +85,9 @@ def main():
     
     summary = student_summary(details, exercises, exams)
 
-    #Course name.
-
-    
+    #Course information.
+    course_name = course_info(course_details)
+    print(course_name)
 
     print(f"{'name':30}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade")
     for full_name, stats in summary.items():
