@@ -1,5 +1,5 @@
 # tee ratkaisu tänne
-def student_details(file):
+def student_details(filename):
     """Reads a csv file containing student id, first name
     and last name (in that order) and returns a dictionary
     of id (key) and full name (value)."""
@@ -17,7 +17,7 @@ def student_details(file):
     
     return student_details
 
-def aggregator(file):
+def aggregator(filename):
     """Reads a csv file containing student id and exercises completed or exam points
     and returns a dictionary of id (key) and aggregate of exercises or aggregate exam points (value)."""
 
@@ -58,7 +58,13 @@ def student_summary(details: dict, exercises: dict, exams: dict):
         summary[full_name] = [exercise_tot, exercise_points, exam_points, total, grade]
 
     return summary
-        
+
+def course_name(filename):
+    """Reads a file containing course information and
+     creates a course name and credit string
+    """
+    pass
+
 def main():
     student_info = 'students1.csv' #input("Student information: ").strip()
     exercise_data = 'exercises1.csv' #input("Exercises completed: ").strip()
@@ -69,9 +75,13 @@ def main():
     details = student_details(student_info)
     exercises = aggregator(exercise_data) 
     exams = aggregator(exam_data)
-
-    summary = student_summary(details, exercises, exams)
     
+    summary = student_summary(details, exercises, exams)
+
+    #Course name.
+
+    
+
     print(f"{'name':30}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade")
     for full_name, stats in summary.items():
         print(f"{full_name:30}",end="")
