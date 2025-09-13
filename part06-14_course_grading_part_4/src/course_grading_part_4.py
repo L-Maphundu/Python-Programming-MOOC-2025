@@ -94,11 +94,12 @@ def main():
     with open("results.txt", "w") as results:
         results.write(course_name + "\n")
         results.write(f"{'name':30}exec_nbr  exec_pts. exm_pts.  tot_pts.  grade\n")
-
-    for full_name, stats in summary.items():
-        print(f"{full_name:30}",end="")
-        for data in stats:
-            print(f"{str(data):10}",end="")
-        print()
+    
+        student = ""
+        for full_name, stats in summary.items():
+            student += f"{full_name:30}"
+            for data in stats:
+                student += f"{str(data):10}"
+            results.write(student + "\n")
 
 main()
