@@ -75,10 +75,10 @@ def course_info(filename):
     return header + "\n" + underline 
 
 def main():
-    student_info = 'students1.csv' #input("Student information: ").strip()
-    exercise_data = 'exercises1.csv' #input("Exercises completed: ").strip()
-    exam_data = 'exam_points1.csv' #input("Exam points: ").strip()
-    course_details = 'course1.txt' #input("Course information: ").strip()
+    student_info = input("Student information: ").strip()
+    exercise_data = input("Exercises completed: ").strip()
+    exam_data = input("Exam points: ").strip()
+    course_details = input("Course information: ").strip()
 
     #populate the dictionaries needed by student_summary function.
     details = student_details(student_info)
@@ -86,6 +86,12 @@ def main():
     exams = aggregator(exam_data)
     
     summary = student_summary(details, exercises, exams)
+
+    #Write course results.csv
+    with open("results.csv", "w") as report_card:
+        for id, fullname in details.items():
+            if fullname in summary:
+                report_card.write(f"{id};{fullname};{summary[fullname][-1]}\n")
 
     #Course information.
     course_name = course_info(course_details)
@@ -101,5 +107,6 @@ def main():
             for data in stats:
                 student += f"{str(data):10}"
             results.write(student + "\n")
+            student = ""
 
 main()
