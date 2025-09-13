@@ -69,8 +69,10 @@ def course_info(filename):
             info = line.split(':')
             details.append(info[1].strip())
     
-    return f"{details[0]}, {details[1]} credits"
+    header = f"{details[0]}, {details[1]} credits"
+    underline = "="*len(header)
 
+    return header + "\n" + underline 
 
 def main():
     student_info = 'students1.csv' #input("Student information: ").strip()
