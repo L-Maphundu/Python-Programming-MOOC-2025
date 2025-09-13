@@ -60,9 +60,10 @@ def student_summary(details: dict, exercises: dict, exams: dict):
     return summary
         
 def main():
-    student_info = input("Student information: ")
-    exercise_data = input("Exercises completed: ")
-    exam_data = input("Exam points: ")
+    student_info = 'students1.csv' #input("Student information: ").strip()
+    exercise_data = 'exercises1.csv' #input("Exercises completed: ").strip()
+    exam_data = 'exam_points1.csv' #input("Exam points: ").strip()
+    course_info = 'course1.txt' #input("Course information: ").strip()
 
     #populate the dictionaries needed by student_summary function.
     details = student_details(student_info)
