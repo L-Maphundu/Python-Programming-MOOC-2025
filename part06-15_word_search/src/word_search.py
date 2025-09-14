@@ -10,9 +10,7 @@ def word_list():
     return word_list
 
 def asterik(search_term: str, words: list):
-    """Returns a list of all the """
     results = []
-
     if search_term.endswith('*'):
         search_term = search_term[:-1]
         for word in words:
