@@ -12,7 +12,6 @@ def word_list():
 def asterik(search_term: str, words: list):
     """Returns a list of all the """
     results = []
-    search_term = search_term.lower()
 
     if search_term.endswith('*'):
         search_term = search_term[:-1]
@@ -27,16 +26,26 @@ def asterik(search_term: str, words: list):
                 results.append(word)
 
         return results
+        
+def normal_search(search_term: str, words: list):
+    results = []
+    for word in words:
+        if search_term == word:
+            results.append(word)
+    return results
 
 def find_words(search_term: str):
     """Returns a list of all the words in word_list()
     that match the search term based on wildcards '.' and '*'."""
     words = word_list()
+    search_term = search_term.lower()
 
     if '*' in search_term:
         return asterik(search_term, words)
-        
+    
+    return normal_search(search_term, words)
+         
 def main():
-    print(find_words("*vokes"))
-
-main()
+    print(find_words("cat"))
+if __name__ == "__main__":
+    main()
