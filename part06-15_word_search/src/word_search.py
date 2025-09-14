@@ -65,6 +65,7 @@ def find_words(search_term: str):
     return normal_search(search_term, words)
          
 def main():
-    print(find_words(".a.e"))
+    word = input("Enter word to search: ").strip()
+    print(find_words(word))
 if __name__ == "__main__":
     main()
