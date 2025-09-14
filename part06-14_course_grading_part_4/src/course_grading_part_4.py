@@ -80,7 +80,7 @@ def main():
     exam_data = input("Exam points: ").strip()
     course_details = input("Course information: ").strip()
 
-    #populate the dictionaries needed by student_summary function.
+    #populates the dictionaries needed by student_summary function.
     details = student_details(student_info)
     exercises = aggregator(exercise_data) 
     exams = aggregator(exam_data)
