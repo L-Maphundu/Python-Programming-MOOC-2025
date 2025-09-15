@@ -9,7 +9,7 @@ def word_list():
             word_list.append(word)
     return word_list
 
-def asterik(search_term: str, words: list):
+def asterisk(search_term: str, words: list):
     results = []
     if search_term.endswith('*'):
         search_term = search_term[:-1]
@@ -58,7 +58,7 @@ def find_words(search_term: str):
     search_term = search_term.lower()
 
     if '*' in search_term:
-        return asterik(search_term, words)
+        return asterisk(search_term, words)
     elif '.' in search_term:
         return dot_search(search_term, words)
     

@@ -1,0 +1,4 @@
+auto:car
+tietokone:computer
+tietoisuus:conscience
+tieto:knowledge
