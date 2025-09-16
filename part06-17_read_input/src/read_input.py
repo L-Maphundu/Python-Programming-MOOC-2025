@@ -10,7 +10,7 @@ def read_input(prompt: str, lower_bound, upper_bound):
         if lower_bound <= num <= upper_bound:
             return num
         else:
-            print("You must type in an integer")
+            print(f"You must type in an integer between {lower_bound} and {upper_bound}")
         
 
 def main():
