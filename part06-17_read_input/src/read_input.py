@@ -5,7 +5,7 @@ def read_input(prompt: str, lower_bound, upper_bound):
             num = int(input(f"{prompt}").strip())
 
         except ValueError:
-            pass #
+            num = upper_bound + 1 
         
         if lower_bound <= num <= upper_bound:
             return num
